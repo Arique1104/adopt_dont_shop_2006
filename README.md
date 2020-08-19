@@ -112,7 +112,7 @@ the application must be hosted on Heroku.
 Shelters are organizations that have pets available for adoption.
 
 ```
-[ ] done
+[x] done
 
 User Story 2, Shelter Index
 
