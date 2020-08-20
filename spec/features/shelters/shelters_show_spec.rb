@@ -1,4 +1,5 @@
 require 'rails_helper'
+#put the user story here
 
 RSpec.describe 'Shelter Show Page' do
   it 'shows a shelter page' do

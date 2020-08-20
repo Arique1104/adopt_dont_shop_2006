@@ -4,7 +4,18 @@ class SheltersController < ApplicationController
   end
 
   def show
-    @shelter = Shelter.find(params["id"])
+    @shelter = Shelter.find(params[:id])
+  end
+
+  def new
+
+  end
+
+  def create
+    @shelter = Shelter.new({})
+    @shelter.save!
+
+    redirect_to '/shelters'
   end
 
 end
