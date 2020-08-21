@@ -122,7 +122,7 @@ Then I see the name of each shelter in the system
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 3, Shelter Show
 
@@ -137,7 +137,7 @@ Then I see the shelter with that id including the shelter's:
 ```
 
 ```
-[ ] done
+[x] done
 
 User Story 4, Shelter Creation
 
@@ -146,6 +146,8 @@ When I visit the Shelter Index page
 Then I see a link to create a new Shelter, "New Shelter"
 When I click this link
 Then I am taken to '/shelters/new' where I  see a form for a new shelter
+
+
 When I fill out the form with a new shelter's:
 - name
 - address
