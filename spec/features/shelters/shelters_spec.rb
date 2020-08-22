@@ -50,14 +50,6 @@ RSpec.describe 'Shelter' do
 # User Story 5, Shelter Edit
 #
   context 'Edit Page' do
-    it 'shows a shelter form' do
-      @shelter_1 = Shelter.create(name: "Stella", address:'123 Fake Street', city: 'Sup', state:'OfPanic', zip: '123345')
-      visit "/shelters/#{@shelter_1.id}"
-      click_link 'Update Shelter'
-      expect(current_path).to eq('/shelters/:id/edit')
-      expect(page).to have_content("Edit Shelter Form")
-    end
-
     it 'Can Patch a new Shelter' do
       @shelter_1 = Shelter.create(name: "Stella", address:'123 Fake Street', city: 'Sup', state:'OfPanic', zip: '123345')
       visit "/shelters/#{@shelter_1.id}"
