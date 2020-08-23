@@ -70,4 +70,17 @@ RSpec.describe 'Shelter' do
       expect(page).to have_content("123345")
     end
   end
+
+  context 'Delete Page' do
+    it 'Can delete a shelter' do
+      shelter_1 = Shelter.create(name: "Wilmer's Place", address:'123 Fake Street', city: 'Sup', state:'OfPanic', zip: '123345')
+
+      visit "/shelters/#{shelter_1.id}"
+save_and_open_page
+      click_link 'Delete Shelter'
+# Then a 'DELETE' request is sent to '/shelters/:id',
+      expect(current_path).to eq("/shelters")
+      expect(page).not_to have_content(shelter_1.name)
+    end
+  end
 end
