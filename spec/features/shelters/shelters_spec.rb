@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Shelter' do
 
   context 'Index Page' do
-    it 'shows a list of all shelter names' do
+    xit 'shows a list of all shelter names' do
       @shelter_1 = Shelter.create(name: "Stella")
       visit '/shelters'
       expect(page).to have_content(@shelter_1.name)
@@ -11,7 +11,7 @@ RSpec.describe 'Shelter' do
   end
 
   context 'Show Page' do
-    it 'shows a shelter page' do
+    xit 'shows a shelter page' do
       @shelter_1 = Shelter.create(name: "Stella", address:'123 Fake Street', city: 'Sup', state:'OfPanic', zip: '123345')
       visit "/shelters/#{@shelter_1.id}"
       expect(page).to have_content(@shelter_1.name)
@@ -24,14 +24,14 @@ RSpec.describe 'Shelter' do
   end
 
   context 'Create Page' do
-    it 'shows a shelter form' do
+    xit 'shows a shelter form' do
       visit '/shelters'
       click_link 'New Shelter'
       expect(current_path).to eq('/shelters/new')
       expect(page).to have_content("New Shelter's Form")
     end
 
-    it 'Can Post a new Shelter' do
+    xit 'Can Post a new Shelter' do
       visit '/shelters'
       click_link 'New Shelter'
       expect(current_path).to eq('/shelters/new')
@@ -48,7 +48,7 @@ RSpec.describe 'Shelter' do
   end
 
 # User Story 5, Shelter Edit
-#
+
   context 'Edit Page' do
     it 'Can Patch a new Shelter' do
       @shelter_1 = Shelter.create(name: "Stella", address:'123 Fake Street', city: 'Sup', state:'OfPanic', zip: '123345')
