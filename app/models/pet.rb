@@ -4,6 +4,6 @@ class Pet < ApplicationRecord
   validates_presence_of :approximate_age
   validates_presence_of :sex
 
-  belong_to :shelter
+  belongs_to :shelter
 
 end

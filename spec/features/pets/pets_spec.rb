@@ -3,11 +3,17 @@ require 'rails_helper'
 RSpec.describe 'Pets' do
 #
   context 'Index Page' do
-    xit 'shows a list of all pet names' do
+    it 'shows a list of all pet names' do
       shelter_1 = Shelter.create!(name: "Wilmer's Place", address:'123 Fake Street', city: 'Sup', state:'OfPanic', zip: '123345')
-      pet_1 = Pets.create!(image: 'wtf', name: "Luna", approximate_age: '3', sex: 'M', shelter_id: shelter_1.id )
-#       visit '/shelters'
-#       expect(page).to have_content(@shelter_1.name)
+      pet_1 = Pet.create!(image: 'wtf', name: "Luna", approximate_age: '3', sex: 'M', shelter_id: shelter_1.id )
+      visit '/pets'
+      expect(page).to have_content(pet_1.image)
+      expect(page).to have_content(pet_1.name)
+      expect(page).to have_content(pet_1.approximate_age)
+      expect(page).to have_content(pet_1.shelter_id)
+
+
+
     end
   end
 #

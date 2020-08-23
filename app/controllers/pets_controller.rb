@@ -1,7 +1,7 @@
 class PetsController < ApplicationController
  #attr_reader
  def index
-   require "pry"; binding.pry
+   @pets = Pet.all
  end
 
  def create
