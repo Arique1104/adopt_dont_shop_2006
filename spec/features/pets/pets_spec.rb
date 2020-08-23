@@ -17,18 +17,17 @@ RSpec.describe 'Pets' do
     end
   end
 #
-#   context 'Show Page' do
-#     it 'shows a shelter page' do
-#       @shelter_1 = Shelter.create(name: "Stella", address:'123 Fake Street', city: 'Sup', state:'OfPanic', zip: '123345')
-#       visit "/shelters/#{@shelter_1.id}"
-#       expect(page).to have_content(@shelter_1.name)
-#       expect(page).to have_content(@shelter_1.address)
-#       expect(page).to have_content(@shelter_1.city)
-#       expect(page).to have_content(@shelter_1.state)
-#       expect(page).to have_content(@shelter_1.zip)
-#
-#     end
-#   end
+  context 'Shelter Pets Index' do
+    it 'shows a pet that you can adopt from a shelter' do
+      shelter_1 = Shelter.create!(name: "Wilmer's Place", address:'123 Fake Street', city: 'Sup', state:'OfPanic', zip: '123345')
+      pet_1 = Pet.create!(image: 'wtf', name: "Luna", approximate_age: '3', sex: 'M', shelter_id: shelter_1.id )
+      visit "/shelters/#{shelter_1.id}/pets"
+      expect(page).to have_content(pet_1.image)
+      expect(page).to have_content(pet_1.name)
+      expect(page).to have_content(pet_1.approximate_age)
+      expect(page).to have_content(pet_1.shelter_id)
+    end
+  end
 #
 #   context 'Create Page' do
 #     it 'shows a shelter form' do
