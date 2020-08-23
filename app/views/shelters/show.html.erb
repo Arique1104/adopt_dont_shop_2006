@@ -2,3 +2,12 @@
 
 <p> Address: <%= @shelter.address %> </p>
 <p> <%= @shelter.city%>, <%= @shelter.state %> <%= @shelter.zip %> </p>
+
+
+<a href= <%= "/shelters/#{@shelter.id}/edit" %> >
+<button>
+  Update Shelter
+</button>
+</a>
+
+<%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}", method: "delete", class: :button %>
