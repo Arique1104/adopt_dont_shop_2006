@@ -62,7 +62,7 @@ RSpec.describe 'Shelter' do
       fill_in :state, with: 'OfPeace'
       fill_in :zip, with: '123345'
       click_on 'submit form'
-      expect(current_path).to eq("/shelters/#{@shelter_1.id}")
+      expect(current_path).to eq("/shelters")
       expect(page).to have_content("Estrella")
       expect(page).to have_content("123 Fake Street")
       expect(page).to have_content("Sup")
