@@ -1,11 +1,14 @@
 class PetsController < ApplicationController
- #attr_reader
- def index
-   @pets = Pet.all
- end
+  def index
+    @pets = Pet.all
+  end
 
- def create
-   require "pry"; binding.pry
- end
+  def index_shelter
+    @pets = Pet.all
+    shelter = params[:shelter_id]
+    @adoptable_pets =   @pets.find_all do |pet|
+      pet.shelter_id == shelter
+    end
+  end
 
 end
