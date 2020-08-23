@@ -1,5 +1,5 @@
 <h1>Edit Shelter Form</h1>
-<%= form_tag "/shelters"  %>
+<%= form_tag "/shelters/#{@shelter.id}", method: 'patch' do  %>
   <%= label_tag :name %>
   <%= text_field_tag  :name %>
   <%= label_tag :address %>
@@ -12,3 +12,4 @@
   <%= text_field_tag :zip %>
 
 <%= submit_tag 'submit form' %>
+<% end  %>

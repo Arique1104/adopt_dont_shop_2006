@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Shelter' do
 
   context 'Index Page' do
-    xit 'shows a list of all shelter names' do
+    it 'shows a list of all shelter names' do
       @shelter_1 = Shelter.create(name: "Stella")
       visit '/shelters'
       expect(page).to have_content(@shelter_1.name)
@@ -11,7 +11,7 @@ RSpec.describe 'Shelter' do
   end
 
   context 'Show Page' do
-    xit 'shows a shelter page' do
+    it 'shows a shelter page' do
       @shelter_1 = Shelter.create(name: "Stella", address:'123 Fake Street', city: 'Sup', state:'OfPanic', zip: '123345')
       visit "/shelters/#{@shelter_1.id}"
       expect(page).to have_content(@shelter_1.name)
@@ -24,14 +24,14 @@ RSpec.describe 'Shelter' do
   end
 
   context 'Create Page' do
-    xit 'shows a shelter form' do
+    it 'shows a shelter form' do
       visit '/shelters'
       click_link 'New Shelter'
       expect(current_path).to eq('/shelters/new')
       expect(page).to have_content("New Shelter's Form")
     end
 
-    xit 'Can Post a new Shelter' do
+    it 'Can Post a new Shelter' do
       visit '/shelters'
       click_link 'New Shelter'
       expect(current_path).to eq('/shelters/new')
@@ -51,10 +51,10 @@ RSpec.describe 'Shelter' do
 
   context 'Edit Page' do
     it 'Can Patch a new Shelter' do
-      @shelter_1 = Shelter.create(name: "Stella", address:'123 Fake Street', city: 'Sup', state:'OfPanic', zip: '123345')
-      visit "/shelters/#{@shelter_1.id}"
+      shelter_1 = Shelter.create(name: "Stella", address:'123 Fake Street', city: 'Sup', state:'OfPanic', zip: '123345')
+      visit "/shelters/#{shelter_1.id}"
       click_link 'Update Shelter'
-      expect(current_path).to eq("/shelters/#{@shelter_1.id}/edit")
+      expect(current_path).to eq("/shelters/#{shelter_1.id}/edit")
       expect(page).to have_content("Edit Shelter Form")
       fill_in :name, with: 'Estrella'
       fill_in :address, with: '123 Fake Street'
@@ -62,13 +62,12 @@ RSpec.describe 'Shelter' do
       fill_in :state, with: 'OfPeace'
       fill_in :zip, with: '123345'
       click_on 'submit form'
-      expect(current_path).to eq("/shelters")
+      expect(current_path).to eq("/shelters/#{shelter_1.id}")
       expect(page).to have_content("Estrella")
       expect(page).to have_content("123 Fake Street")
       expect(page).to have_content("Sup")
       expect(page).to have_content("OfPeace")
       expect(page).to have_content("123345")
-
     end
   end
 end

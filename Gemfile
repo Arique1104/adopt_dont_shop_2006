@@ -39,6 +39,10 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'launchy'
+  gem 'simplecov'
+  gem 'shoulda-matchers', '~>3.1'
+  gem 'rspec-pride'
 end
 
 group :development do
